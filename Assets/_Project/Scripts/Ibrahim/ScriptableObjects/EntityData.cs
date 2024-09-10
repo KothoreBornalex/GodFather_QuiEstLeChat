@@ -7,6 +7,7 @@ using UnityEngine;
 public class EntityData : ScriptableObject
 {
     [Header("Base Entity Informations")]
+    [SerializeField] private Sprite _entitySprite;
     [SerializeField] private string _entityName;
     [SerializeField] private string _entityDescription;
 
@@ -15,9 +16,29 @@ public class EntityData : ScriptableObject
     [SerializeField] private EntityData _keyToUnlock;
 
 
+     
+    public string GetEntityName()
+    {
+        return _entityName;
+    }
+
+    public string GetEntityDescription()
+    {
+        return _entityDescription;
+    }
 
     public bool GetIsLocked()
     {
         return _isLocked;
+    }
+
+    public EntityData GetKeyToUnlock()
+    {
+        return _keyToUnlock;
+    }
+
+    public Sprite GetEntitySprite()
+    {
+        return _entitySprite;
     }
 }

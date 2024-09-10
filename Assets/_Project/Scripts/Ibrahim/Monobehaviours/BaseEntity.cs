@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -10,12 +11,18 @@ public class BaseEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     [SerializeField] private EntityData _entityData;
 
     private Button _buttonComponent;
-    
+
+            
+
+    void Awake()
+    {
+        _buttonComponent = GetComponent<Button>();
+    }
+
 
     // Start is called before the first frame update
     void Start()
     {
-        _buttonComponent = GetComponent<Button>();
         _buttonComponent.onClick.AddListener(OnClick);
     }
 
@@ -39,6 +46,7 @@ public class BaseEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void OnPointerDown(PointerEventData eventData)
     {
+
         if (_entityData.GetIsLocked())
         {
             if (PlayerController.instance.GetIsDragging())
@@ -62,4 +70,23 @@ public class BaseEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         Debug.Log("I'm Being Used");
     }
 
+
+    public EntityData GetEntityData()
+    {
+        return _entityData;
+    }
+
+
+    public void SetUpEntity(Button button)
+    {
+
+        // Check if _entityData exists
+        if (!_entityData) return;
+
+
+        button.image.sprite = _entityData.GetEntitySprite();
+
+        EditorUtility.SetDirty(button.image);
+        Canvas.ForceUpdateCanvases();
+    }
 }
