@@ -5,6 +5,8 @@ using UnityEngine;
 using static CursorDesign;
 using static CursorData;
 using AYellowpaper.SerializedCollections;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 
 public class PlayerController : MonoBehaviour
@@ -30,28 +32,46 @@ public class PlayerController : MonoBehaviour
 
 
     [SerializeField] private CursorData _cursorData;
+    [SerializeField] private RectTransform canvasRectTransform; // The RectTransform of your Canvas
 
-    [SerializeField] private bool _isDragging;
-
+    [SerializeField] private float _dragSpeed = 8.0f;
+    private bool _isDragging;
+    private BaseEntity _draggedEntity;
 
     public bool GetIsDragging() { return _isDragging; }
+    public float GetDraggingSpeed() { return _dragSpeed; }
 
+    public void StartDragging(BaseEntity EntityToDrag)
+    {
+        _draggedEntity = EntityToDrag;
+    }
 
+    public void StopDragging()
+    {
+        _draggedEntity = null;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        GameStateInstance.instance.TestFunc();
-
+        SetCursor(CursorDesign.SimpleCursor);
     }
 
 
     void Update()
     {
-        /*if (Input.GetKeyDown("Mouse1"))
+        if (_draggedEntity != null)
         {
-            Debug.Log("Mouse 1 Pressed");
-        }*/
+            Vector2 mousePosition = Input.mousePosition;
+
+            // Convert the screen space mouse position to local space within the canvas
+            Vector2 localPoint;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRectTransform, mousePosition, Camera.main, out localPoint);
+
+            // Set the dragged object's position to the local point
+            _draggedEntity.targetLocation = localPoint;
+        }
+
     }
 
 
@@ -64,5 +84,8 @@ public class PlayerController : MonoBehaviour
     }
 
 
+    public void SelectEntity()
+    {
 
+    }
 }

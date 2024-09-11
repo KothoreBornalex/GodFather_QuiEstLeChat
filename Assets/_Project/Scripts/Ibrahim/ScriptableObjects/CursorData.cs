@@ -12,7 +12,8 @@ public enum CursorDesign
     Default,
     SimpleCursor,
     HoverCursor,
-    InteractCursor
+    InteractCursor,
+    DraggedCursor
 };
 
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/CursorData", order = 1)]

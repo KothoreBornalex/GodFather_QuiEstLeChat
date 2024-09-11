@@ -10,6 +10,7 @@ public class EntityData : ScriptableObject
     [SerializeField] private string _entityName;
     [SerializeField] private string _entityDescription;
     [SerializeField] private Sprite _entitySprite;
+    [SerializeField] private bool _canBeDragged;
 
     [Space(15)]
 
@@ -42,5 +43,10 @@ public class EntityData : ScriptableObject
     public Sprite GetEntitySprite()
     {
         return _entitySprite;
+    }
+
+    public bool GetCanBeDragged()
+    {
+        return _canBeDragged;
     }
 }

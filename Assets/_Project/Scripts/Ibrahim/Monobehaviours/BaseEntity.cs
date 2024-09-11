@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class BaseEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
+public class BaseEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IPointerMoveHandler, IPointerDownHandler, IPointerUpHandler
 {
     [Header("Data")]
 
@@ -14,31 +14,39 @@ public class BaseEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     [SerializeField] private EntityData _entityData;
 
     private Button _buttonComponent;
+    private bool _readyToBeDragged;
+    private bool _wasDragged;
 
-            
+
+    [HideInInspector] public Vector2 targetLocation;
+    private RectTransform _rectTransform;
 
     void Awake()
     {
         _buttonComponent = GetComponent<Button>();
+
+        _rectTransform = GetComponent<RectTransform>();
     }
 
 
     // Start is called before the first frame update
     void Start()
     {
-        _buttonComponent.onClick.AddListener(OnClick);
+        targetLocation = _rectTransform.anchoredPosition;
     }
 
 
-
-
-
-
-    private void OnClick()
+    void Update()
     {
-        Interact();
+        if (_rectTransform.anchoredPosition != targetLocation)
+        {
+            _rectTransform.anchoredPosition = Vector2.Lerp(_rectTransform.anchoredPosition, targetLocation, Time.deltaTime * PlayerController.instance.GetDraggingSpeed());
+        }
     }
 
+
+
+    #region Pointers Detection
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -52,31 +60,73 @@ public class BaseEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        if (!_entityData.GetCanBeDragged()) return;
 
-        Debug.Log("Pointer Down On Me");
-
-        if (_entityData.GetIsLocked())
-        {
-            if (PlayerController.instance.GetIsDragging())
-            {
-                Use();
-            }
-        }
-        
+        _readyToBeDragged = true;
     }
 
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        if (_readyToBeDragged)
+        {
+            _readyToBeDragged = false;
 
+            PlayerController.instance.StopDragging();
+            PlayerController.instance.SetCursor(CursorDesign.SimpleCursor);
+        }
+    }
 
+    public void OnPointerMove(PointerEventData eventData)
+    {
+        if (!PlayerController.instance.GetIsDragging() && _readyToBeDragged)
+        {
+            _wasDragged = true;
+            PlayerController.instance.StartDragging(this);
+            PlayerController.instance.SetCursor(CursorDesign.DraggedCursor);
+        }
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (_wasDragged)
+        {
+            _wasDragged = false;
+        }
+        else
+        {
+            Debug.Log("Read Entity Description");
+
+            if (_entityData.GetIsLocked())
+            {
+                if (PlayerController.instance.GetIsDragging())
+                {
+                    Interact();
+                }
+            }
+        }
+
+        StartCoroutine(TriggerInteractCursor());
+
+    }
+
+    #endregion
+
+    IEnumerator TriggerInteractCursor()
+    {
+        PlayerController.instance.SetCursor(CursorDesign.SimpleCursor);
+
+        // Wait for 2 seconds
+        yield return new WaitForSeconds(0.15f);
+
+        PlayerController.instance.SetCursor(CursorDesign.HoverCursor);
+    }
 
     private void Interact()
     {
-        Debug.Log("I'm THE BUTTON");
+        //Debug.Log("I'm THE BUTTON");
     }
 
-    private void Use()
-    {
-        Debug.Log("I'm Being Used");
-    }
+
 
 
     public EntityData GetEntityData()
