@@ -45,11 +45,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: Background Music
-    clip: {fileID: 8300000, guid: c0b214f31dafc2447ba0e3d8362be4d5, type: 3}
+  - name: MainMenuMusic
+    clip: {fileID: 8300000, guid: 48f12814eabe1604aac803922c0d449e, type: 3}
     volume: 0.2
     pitch: 1
     loop: 1
-    atStart: 1
-    audioMixer: {fileID: 0}
-    actualSound: 4
+    atStart: 0
+    audioMixer: {fileID: 3391820058360014328, guid: 694d196937541a64f8492c210f7e0996, type: 2}
+    actualSound: 0
+  - name: MainMenuMusic2
+    clip: {fileID: 8300000, guid: 32f26fd96b5f57541929e1d57b2705de, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 1
+    atStart: 0
+    audioMixer: {fileID: 3391820058360014328, guid: 694d196937541a64f8492c210f7e0996, type: 2}
+    actualSound: 0
+  - name: MainMenuMusic3
+    clip: {fileID: 8300000, guid: afe04d0c598c39644a10e2a26dd43b27, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 1
+    atStart: 0
+    audioMixer: {fileID: 3391820058360014328, guid: 694d196937541a64f8492c210f7e0996, type: 2}
+    actualSound: 0
+  - name: MainMenuMusic4
+    clip: {fileID: 8300000, guid: 3b0b11cc2c82ff54fa2cb1c62dfaa51d, type: 3}
+    volume: 0.348
+    pitch: 0.94
+    loop: 1
+    atStart: 0
+    audioMixer: {fileID: 3391820058360014328, guid: 694d196937541a64f8492c210f7e0996, type: 2}
+    actualSound: 0
+  - name: MainMenuMusic5
+    clip: {fileID: 8300000, guid: 501282cfa58286e42b2f0986e56f8fac, type: 3}
+    volume: 0.348
+    pitch: 0.94
+    loop: 1
+    atStart: 0
+    audioMixer: {fileID: 3391820058360014328, guid: 694d196937541a64f8492c210f7e0996, type: 2}
+    actualSound: 0
+  - name: MainMenuMusic6
+    clip: {fileID: 8300000, guid: 8393526bfb4cb5e498e61d92861ebd1e, type: 3}
+    volume: 0.348
+    pitch: 0.94
+    loop: 1
+    atStart: 0
+    audioMixer: {fileID: 3391820058360014328, guid: 694d196937541a64f8492c210f7e0996, type: 2}
+    actualSound: 0

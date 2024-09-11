@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef3bcd9a3cb126648932f6e22d89814a, type: 3}
   m_Name: UIInfoData
   m_EditorClassIdentifier: 
-  image: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  image: {fileID: 21300000, guid: fff698ea7a7ef7d42aa4e72101e3ea0b, type: 3}
   nameText: bureau
   descriptionText: je suis un super bureau de gamer je peux faire plein de truc super
     sympas
