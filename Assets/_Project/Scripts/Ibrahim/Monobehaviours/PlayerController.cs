@@ -46,6 +46,15 @@ public class PlayerController : MonoBehaviour
     }
 
 
+    void Update()
+    {
+        /*if (Input.GetKeyDown("Mouse1"))
+        {
+            Debug.Log("Mouse 1 Pressed");
+        }*/
+    }
+
+
     public void SetCursor(CursorDesign cursorDesign)
     {
         if (_cursorData  && !_isDragging)

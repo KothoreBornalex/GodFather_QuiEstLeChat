@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -7,7 +8,9 @@ using UnityEngine.UI;
 
 public class BaseEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
 {
-    [Header("Data")] 
+    [Header("Data")]
+
+    [Expandable]
     [SerializeField] private EntityData _entityData;
 
     private Button _buttonComponent;
@@ -25,6 +28,9 @@ public class BaseEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         _buttonComponent.onClick.AddListener(OnClick);
     }
+
+
+
 
 
 
@@ -46,6 +52,8 @@ public class BaseEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void OnPointerDown(PointerEventData eventData)
     {
+
+        Debug.Log("Pointer Down On Me");
 
         if (_entityData.GetIsLocked())
         {
