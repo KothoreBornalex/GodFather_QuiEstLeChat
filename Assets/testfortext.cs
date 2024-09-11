@@ -8,6 +8,6 @@ public class testfortext : MonoBehaviour
 
     public void ButtonPressed()
     {
-        TextInfoSystem.instance.TextInfoIn(uiInfoData);
+        //TextInfoSystem.instance.TextInfoIn(uiInfoData);
     }
 }

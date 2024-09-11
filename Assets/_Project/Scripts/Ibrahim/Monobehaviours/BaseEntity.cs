@@ -94,15 +94,10 @@ public class BaseEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         }
         else
         {
-            Debug.Log("Read Entity Description");
+            //Debug.Log("Read Entity Description");
 
-            if (_entityData.GetIsLocked())
-            {
-                if (PlayerController.instance.GetIsDragging())
-                {
-                    Interact();
-                }
-            }
+            Interact();
+            
         }
 
         StartCoroutine(TriggerInteractCursor());
@@ -123,7 +118,7 @@ public class BaseEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     private void Interact()
     {
-        //Debug.Log("I'm THE BUTTON");
+        TextInfoSystem.instance.TextInfoIn(_entityData);
     }
 
 
