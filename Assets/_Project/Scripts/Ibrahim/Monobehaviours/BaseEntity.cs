@@ -1,9 +1,12 @@
 using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.U2D;
 using UnityEngine.UI;
 
 public class BaseEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IPointerMoveHandler, IPointerDownHandler, IPointerUpHandler
@@ -12,6 +15,7 @@ public class BaseEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     [Expandable]
     [SerializeField] private EntityData _entityData;
+
 
     private Button _buttonComponent;
     private bool _readyToBeDragged;
@@ -73,6 +77,8 @@ public class BaseEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
             PlayerController.instance.StopDragging();
             PlayerController.instance.SetCursor(CursorDesign.SimpleCursor);
+
+            CheckForUse();
         }
     }
 
@@ -96,8 +102,7 @@ public class BaseEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         {
             //Debug.Log("Read Entity Description");
 
-            Interact();
-            
+            ReCookescription();
         }
 
         StartCoroutine(TriggerInteractCursor());
@@ -105,6 +110,56 @@ public class BaseEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     }
 
     #endregion
+    public void CheckForUse()
+    {
+
+        PointerEventData pointerData = new PointerEventData(EventSystem.current)
+        {
+            pointerId = -1,
+        };
+
+        pointerData.position = Input.mousePosition;
+
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(pointerData, results);
+
+        Debug.Log(results.Count);
+
+        foreach (RaycastResult result in results)
+        {
+            if (result.gameObject == gameObject) continue;
+
+
+
+
+            if (result.gameObject.GetComponent<BaseEntity>())
+            {
+                BaseEntity baseEntity = result.gameObject.GetComponent<BaseEntity>();
+
+                switch (baseEntity.GetEntityData().GetEntityType())
+                {
+                    case EntityTypes.Default:
+                        break;
+
+                    case EntityTypes.Lock:
+                        baseEntity.Unlock(_entityData);
+                        break;
+
+                    case EntityTypes.Key:
+                        break;
+
+                    case EntityTypes.Ingredient:
+                        Debug.Log("Coooooook");
+                        baseEntity.Cook(this);
+                        break;
+                }
+
+            }
+
+        }
+
+    }
+
 
     IEnumerator TriggerInteractCursor()
     {
@@ -116,13 +171,49 @@ public class BaseEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         PlayerController.instance.SetCursor(CursorDesign.HoverCursor);
     }
 
-    private void Interact()
+
+
+    private void ReCookescription()
     {
         TextInfoSystem.instance.TextInfoIn(_entityData);
     }
 
 
+    private void Cook(BaseEntity externIngredient)
+    {
+        if (_entityData.GetIngredientToFill() == externIngredient.GetEntityData())
+        {
+            //EntityData NewEntityData = test;
+            GameObject entityInstance = Instantiate(_entityData.GetFullEntity().GetEntityPrefab(), transform.position, transform.rotation, GameStateInstance.instance.CanvasMap.transform);
 
+            entityInstance.GetComponent<RectTransform>().anchoredPosition = _rectTransform.anchoredPosition;
+            entityInstance.GetComponent<RectTransform>().rotation = _rectTransform.rotation;
+
+
+            entityInstance.GetComponent<BaseEntity>().SetUpEntityWithData(_entityData.GetFullEntity());
+
+
+            gameObject.SetActive(false);
+            externIngredient.gameObject.SetActive(false);
+
+            /*Destroy(gameObject);
+            Destroy(externIngredient.gameObject);*/
+        }
+        
+    }
+
+
+    private void Unlock(EntityData keyData)
+    {
+        if (_entityData.GetEntityType() == EntityTypes.Lock)
+        {
+            if (_entityData.GetKeyToUnlock() == keyData)
+            {
+                Debug.Log("Unlock " + _entityData.GetEntityName());
+                gameObject.SetActive(false);
+            }
+        }
+    }
 
     public EntityData GetEntityData()
     {
@@ -137,9 +228,23 @@ public class BaseEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         if (!_entityData) return;
 
 
+
         button.image.sprite = _entityData.GetEntitySprite();
 
         EditorUtility.SetDirty(button.image);
         Canvas.ForceUpdateCanvases();
+    }
+
+
+    public void SetUpEntityWithData(EntityData entityData)
+    {
+        // Check if _entityData exists
+        if (!entityData) return;
+
+        _entityData = entityData;
+
+        _buttonComponent = GetComponent<Button>();
+
+        _buttonComponent.image.sprite = _entityData.GetEntitySprite();
     }
 }
