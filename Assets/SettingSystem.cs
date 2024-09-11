@@ -17,11 +17,11 @@ public class SettingSystem : MonoBehaviour
     {
         uiAnimator = GetComponent<Animator>();
     }
-    void Start()
-    {
-        // Garantit que ce GameObject ne sera pas détruit lorsque la scène est changée
-        DontDestroyOnLoad(this);
-    }
+    //void Start()
+    //{
+    //    // Garantit que ce GameObject ne sera pas détruit lorsque la scène est changée
+    //    DontDestroyOnLoad(gameObject);
+    //}
 
     public void StartAnimation()
     {

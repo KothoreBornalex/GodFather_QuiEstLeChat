@@ -6,5 +6,6 @@ public enum SoundState
 {
     MENU,
     VICTORY,
+    TEST,
     MUSIC
 }
