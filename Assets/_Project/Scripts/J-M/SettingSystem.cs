@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class SettingSystem : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class SettingSystem : MonoBehaviour
     Animator uiAnimator;
 
     private bool settingsOpen = false;
+
+    [SerializeField] private string sceneToLoad;
 
 
     void Awake()
@@ -58,5 +61,14 @@ public class SettingSystem : MonoBehaviour
     public void SetSFXVolume(float sliderValue)
     {
         audioMixer.SetFloat("SFX", Mathf.Log10(sliderValue) * 20);
+    }
+
+    public void BackToMenuButton()
+    {
+        SceneManager.LoadScene(sceneToLoad);
+        AudioManager.instance.StopCurrentMusic();
+        AudioManager.instance.PlayMusicByState(SoundState.MENU);
+
+
     }
 }
