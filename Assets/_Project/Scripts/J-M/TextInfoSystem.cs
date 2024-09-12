@@ -27,14 +27,14 @@ public class TextInfoSystem : MonoBehaviour
         textInfoIsOn = false;
     }
 
-    public void TextInfoIn(TestForJM scriptableObject)
+    public void TextInfoIn(EntityData scriptableObject)
     {
         if(textInfoIsOn) { EndAnimation(); }
         else
         {
-            objectImage.sprite = scriptableObject.image;
-            ObjectName.text = scriptableObject.nameText;
-            objectDescription.text = scriptableObject.descriptionText;
+            objectImage.sprite = scriptableObject.GetEntitySprite();
+            ObjectName.text = scriptableObject.GetEntityName();
+            objectDescription.text = scriptableObject.GetEntityDescription();
             StartAnimation();
         }
     }

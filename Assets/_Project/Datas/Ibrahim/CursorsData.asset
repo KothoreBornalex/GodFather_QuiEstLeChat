@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0de226207152e06478703219239fb64c, type: 3}
   m_Name: CursorsData
   m_EditorClassIdentifier: 
-  _cursorOffset: {x: 32, y: 32}
+  _cursorOffset: {x: 16, y: 16}
   _cursors:
     _serializedList:
     - Key: 1
