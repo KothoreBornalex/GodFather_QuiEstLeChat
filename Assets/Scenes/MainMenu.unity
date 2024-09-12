@@ -1532,7 +1532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5e0898476761b4dae4e8277ebb7ab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: JMScene
+  sceneToLoad: GameScene
 --- !u!95 &1658474916
 Animator:
   serializedVersion: 5
