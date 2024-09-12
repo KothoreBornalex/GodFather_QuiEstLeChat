@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: ED_Brioche
   m_EditorClassIdentifier: 
   _entityName: Brioche
-  _entityDescription: MMMhhhh une bonne brioche !
+  _entityDescription: "\u201CCette brioche semble bien app\xE9tissante , il s\u2019en
+    d\xE9gage une forte odeur de noisette\u201D"
   _entitySprite: {fileID: 21300000, guid: 5c307e0c1fb7ba64ebece091592ca6c6, type: 3}
   _entityType: 0
   _entityPrefab: {fileID: 7491040583169564168, guid: feb5422f794a9d44b81cee3ed5ceba59, type: 3}
