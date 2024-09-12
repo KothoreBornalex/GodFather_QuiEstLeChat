@@ -20,7 +20,7 @@ public class BaseEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     private Button _buttonComponent;
     private bool _readyToBeDragged;
     private bool _wasDragged;
-
+    private Animator _animator;
 
     [HideInInspector] public Vector2 targetLocation;
     private RectTransform _rectTransform;
@@ -28,7 +28,7 @@ public class BaseEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     void Awake()
     {
         _buttonComponent = GetComponent<Button>();
-
+        _animator = GetComponent<Animator>();
         _rectTransform = GetComponent<RectTransform>();
     }
 
@@ -102,7 +102,18 @@ public class BaseEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         {
             //Debug.Log("Read Entity Description");
 
-            ReCookescription();
+
+            switch (_entityData.GetEntityType())
+            {
+                case EntityTypes.PasswordLock:
+                    GameStateInstance.instance.CodeSystem.StartUnlockPaswword(_entityData.GetPassword(), gameObject);
+                    break;
+
+                default:
+                    ReadDescription();
+                    break;
+
+            }
         }
 
         StartCoroutine(TriggerInteractCursor());
@@ -152,6 +163,7 @@ public class BaseEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                         Debug.Log("Coooooook");
                         baseEntity.Cook(this);
                         break;
+
                 }
 
             }
@@ -173,7 +185,7 @@ public class BaseEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
 
 
-    private void ReCookescription()
+    private void ReadDescription()
     {
         TextInfoSystem.instance.TextInfoIn(_entityData);
     }
@@ -193,8 +205,8 @@ public class BaseEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             entityInstance.GetComponent<BaseEntity>().SetUpEntityWithData(_entityData.GetFullEntity());
 
 
-            gameObject.SetActive(false);
-            externIngredient.gameObject.SetActive(false);
+            StartDisappear();
+            externIngredient.StartDisappear();
 
             /*Destroy(gameObject);
             Destroy(externIngredient.gameObject);*/
@@ -210,9 +222,15 @@ public class BaseEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             if (_entityData.GetKeyToUnlock() == keyData)
             {
                 Debug.Log("Unlock " + _entityData.GetEntityName());
-                gameObject.SetActive(false);
+                StartDisappear();
             }
         }
+    }
+
+
+    public void StartDisappear()
+    {
+        _animator.SetTrigger("disappear");
     }
 
     public EntityData GetEntityData()

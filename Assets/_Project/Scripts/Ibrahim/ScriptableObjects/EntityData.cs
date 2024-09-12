@@ -13,6 +13,7 @@ public enum EntityTypes
     Key,
     Lock,
     Ingredient,
+    PasswordLock
 };
 
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/EntityData", order = 1)]
@@ -30,6 +31,7 @@ public class EntityData : ScriptableObject
 
     [Header("Locker Informations")]
     [SerializeField] private EntityData _keyToUnlock;
+    [SerializeField] private int _password;
 
 
 
@@ -38,6 +40,10 @@ public class EntityData : ScriptableObject
     [SerializeField] private EntityData _ingredientToFill;
 
 
+    public int GetPassword()
+    {
+        return _password;
+    }
     public string GetEntityName()
     {
         return _entityName;
