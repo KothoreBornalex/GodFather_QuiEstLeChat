@@ -7,5 +7,6 @@ public enum SoundState
     MENU,
     VICTORY,
     TEST,
-    MUSIC
+    MUSIC,
+    SFX
 }
