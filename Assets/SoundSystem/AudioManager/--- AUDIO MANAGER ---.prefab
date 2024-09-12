@@ -49,7 +49,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 48f12814eabe1604aac803922c0d449e, type: 3}
     volume: 0.2
     pitch: 1
-    loop: 1
+    loop: 0
     atStart: 0
     audioMixer: {fileID: 3391820058360014328, guid: 694d196937541a64f8492c210f7e0996, type: 2}
     actualSound: 0
@@ -57,7 +57,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 32f26fd96b5f57541929e1d57b2705de, type: 3}
     volume: 0.2
     pitch: 1
-    loop: 1
+    loop: 0
     atStart: 0
     audioMixer: {fileID: 3391820058360014328, guid: 694d196937541a64f8492c210f7e0996, type: 2}
     actualSound: 0
@@ -65,7 +65,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: afe04d0c598c39644a10e2a26dd43b27, type: 3}
     volume: 0.2
     pitch: 1
-    loop: 1
+    loop: 0
     atStart: 0
     audioMixer: {fileID: 3391820058360014328, guid: 694d196937541a64f8492c210f7e0996, type: 2}
     actualSound: 0
@@ -73,7 +73,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 3b0b11cc2c82ff54fa2cb1c62dfaa51d, type: 3}
     volume: 0.348
     pitch: 0.94
-    loop: 1
+    loop: 0
     atStart: 0
     audioMixer: {fileID: 3391820058360014328, guid: 694d196937541a64f8492c210f7e0996, type: 2}
     actualSound: 0
@@ -81,7 +81,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 501282cfa58286e42b2f0986e56f8fac, type: 3}
     volume: 0.348
     pitch: 0.94
-    loop: 1
+    loop: 0
     atStart: 0
     audioMixer: {fileID: 3391820058360014328, guid: 694d196937541a64f8492c210f7e0996, type: 2}
     actualSound: 0
@@ -89,7 +89,87 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 8393526bfb4cb5e498e61d92861ebd1e, type: 3}
     volume: 0.348
     pitch: 0.94
-    loop: 1
+    loop: 0
     atStart: 0
     audioMixer: {fileID: 3391820058360014328, guid: 694d196937541a64f8492c210f7e0996, type: 2}
     actualSound: 0
+  - name: Test
+    clip: {fileID: 8300000, guid: ffbe8447f89913440a9c8d476338a187, type: 3}
+    volume: 0.348
+    pitch: 0.94
+    loop: 0
+    atStart: 0
+    audioMixer: {fileID: 3391820058360014328, guid: 694d196937541a64f8492c210f7e0996, type: 2}
+    actualSound: 2
+  - name: Test
+    clip: {fileID: 8300000, guid: 0b76a3dafc2be0049a14ed673b98a1ad, type: 3}
+    volume: 0.348
+    pitch: 0.94
+    loop: 0
+    atStart: 0
+    audioMixer: {fileID: 3391820058360014328, guid: 694d196937541a64f8492c210f7e0996, type: 2}
+    actualSound: 2
+  - name: Test
+    clip: {fileID: 8300000, guid: f231fdc956954cc4e9603eed1beaef68, type: 3}
+    volume: 0.348
+    pitch: 0.94
+    loop: 0
+    atStart: 0
+    audioMixer: {fileID: 3391820058360014328, guid: 694d196937541a64f8492c210f7e0996, type: 2}
+    actualSound: 2
+  - name: Test
+    clip: {fileID: 8300000, guid: 915051c10251362479f9efaa94c91808, type: 3}
+    volume: 0.348
+    pitch: 0.94
+    loop: 0
+    atStart: 0
+    audioMixer: {fileID: 3391820058360014328, guid: 694d196937541a64f8492c210f7e0996, type: 2}
+    actualSound: 2
+  - name: Test
+    clip: {fileID: 8300000, guid: de81670e468f0e64e9c4f6e25f468cf5, type: 3}
+    volume: 0.348
+    pitch: 0.94
+    loop: 0
+    atStart: 0
+    audioMixer: {fileID: 3391820058360014328, guid: 694d196937541a64f8492c210f7e0996, type: 2}
+    actualSound: 2
+  - name: MusicInGame
+    clip: {fileID: 8300000, guid: 6666da3249e08d6469fde61f3aa145db, type: 3}
+    volume: 0.348
+    pitch: 0.94
+    loop: 0
+    atStart: 0
+    audioMixer: {fileID: 3391820058360014328, guid: 694d196937541a64f8492c210f7e0996, type: 2}
+    actualSound: 3
+  - name: MusicInGame
+    clip: {fileID: 8300000, guid: bd294da5781f73c429eb68a39cc3d9de, type: 3}
+    volume: 0.348
+    pitch: 0.94
+    loop: 0
+    atStart: 0
+    audioMixer: {fileID: 3391820058360014328, guid: 694d196937541a64f8492c210f7e0996, type: 2}
+    actualSound: 3
+  - name: MusicInGame
+    clip: {fileID: 8300000, guid: be1361f244ed73d4cb8323f3a1cc0b70, type: 3}
+    volume: 0.348
+    pitch: 0.94
+    loop: 0
+    atStart: 0
+    audioMixer: {fileID: 3391820058360014328, guid: 694d196937541a64f8492c210f7e0996, type: 2}
+    actualSound: 3
+  - name: MusicInGame
+    clip: {fileID: 8300000, guid: 7684bd0fab592b344a54810b6349c2ec, type: 3}
+    volume: 0.348
+    pitch: 0.94
+    loop: 0
+    atStart: 0
+    audioMixer: {fileID: 3391820058360014328, guid: 694d196937541a64f8492c210f7e0996, type: 2}
+    actualSound: 3
+  - name: MusicInGame
+    clip: {fileID: 8300000, guid: 554c5db0c451e35488d85a2426efc8bc, type: 3}
+    volume: 0.348
+    pitch: 0.94
+    loop: 0
+    atStart: 0
+    audioMixer: {fileID: 3391820058360014328, guid: 694d196937541a64f8492c210f7e0996, type: 2}
+    actualSound: 3
