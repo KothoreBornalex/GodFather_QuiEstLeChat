@@ -4,6 +4,29 @@ using System.Collections.Generic;
 
 public class CodeSystem : MonoBehaviour
 {
+
+
+    public static CodeSystem instance;
+
+    // Ensures that the instance is not duplicated
+    private void Awake()
+    {
+        // Check if there is already an instance
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject); // Optional, if you want to keep it across scenes
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject); // Destroy duplicate instance
+        }
+    }
+
+
+    private GameObject _entityToUnlock;
+
+
     [SerializeField] private List<TextMeshProUGUI> uiTexts;
 
     [SerializeField] private TextMeshProUGUI resultText;
@@ -44,6 +67,17 @@ public class CodeSystem : MonoBehaviour
         }
     }
 
+
+    public void StartUnlockPaswword(int password, GameObject entity)
+    {
+        gameObject.SetActive(true);
+        targetNumber = password;
+        _entityToUnlock = entity;
+
+        InitializeSystem();
+    }
+
+
     public void OnIncrementButtonClick(int index)
     {
         if (index >= 0 && index < chiffres.Count)
@@ -76,18 +110,20 @@ public class CodeSystem : MonoBehaviour
         }
     }
 
-    private void CheckCombination()
+    private bool CheckCombination()
     {
         for (int i = 0; i < chiffres.Count; i++)
         {
             if (chiffres[i] != targetDigits[i])
             {
                 resultText.text = "Code incorect !"; 
-                return;
+                return false;
             }
         }
 
         resultText.text = "Tu as gagné !";
+
+        return true;
     }
 
     private void ResetNumbers()
@@ -104,8 +140,15 @@ public class CodeSystem : MonoBehaviour
 
     public void CheckButton()
     {
-        CheckCombination();
+        if (CheckCombination())
+        {
+            if(_entityToUnlock) _entityToUnlock.GetComponent<BaseEntity>().StartDisappear();
+
+            gameObject.SetActive(false);
+        }
+
+        ResetNumbers();
     }
-    
+
 
 }

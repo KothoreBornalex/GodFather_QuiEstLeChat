@@ -102,7 +102,18 @@ public class BaseEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         {
             //Debug.Log("Read Entity Description");
 
-            ReCookescription();
+
+            switch (_entityData.GetEntityType())
+            {
+                case EntityTypes.PasswordLock:
+                    GameStateInstance.instance.CodeSystem.StartUnlockPaswword(_entityData.GetPassword(), gameObject);
+                    break;
+
+                default:
+                    ReadDescription();
+                    break;
+
+            }
         }
 
         StartCoroutine(TriggerInteractCursor());
@@ -152,6 +163,7 @@ public class BaseEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                         Debug.Log("Coooooook");
                         baseEntity.Cook(this);
                         break;
+
                 }
 
             }
@@ -173,7 +185,7 @@ public class BaseEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
 
 
-    private void ReCookescription()
+    private void ReadDescription()
     {
         TextInfoSystem.instance.TextInfoIn(_entityData);
     }
@@ -216,10 +228,11 @@ public class BaseEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     }
 
 
-    private void StartDisappear()
+    public void StartDisappear()
     {
         _animator.SetTrigger("disappear");
     }
+
     public EntityData GetEntityData()
     {
         return _entityData;
