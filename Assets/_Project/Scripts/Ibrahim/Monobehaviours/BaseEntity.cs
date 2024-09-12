@@ -20,7 +20,7 @@ public class BaseEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     private Button _buttonComponent;
     private bool _readyToBeDragged;
     private bool _wasDragged;
-
+    private Animator _animator;
 
     [HideInInspector] public Vector2 targetLocation;
     private RectTransform _rectTransform;
@@ -28,7 +28,7 @@ public class BaseEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     void Awake()
     {
         _buttonComponent = GetComponent<Button>();
-
+        _animator = GetComponent<Animator>();
         _rectTransform = GetComponent<RectTransform>();
     }
 
@@ -193,8 +193,8 @@ public class BaseEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             entityInstance.GetComponent<BaseEntity>().SetUpEntityWithData(_entityData.GetFullEntity());
 
 
-            gameObject.SetActive(false);
-            externIngredient.gameObject.SetActive(false);
+            StartDisappear();
+            externIngredient.StartDisappear();
 
             /*Destroy(gameObject);
             Destroy(externIngredient.gameObject);*/
@@ -210,11 +210,16 @@ public class BaseEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
             if (_entityData.GetKeyToUnlock() == keyData)
             {
                 Debug.Log("Unlock " + _entityData.GetEntityName());
-                gameObject.SetActive(false);
+                StartDisappear();
             }
         }
     }
 
+
+    private void StartDisappear()
+    {
+        _animator.SetTrigger("disappear");
+    }
     public EntityData GetEntityData()
     {
         return _entityData;
