@@ -173,3 +173,59 @@ MonoBehaviour:
     atStart: 0
     audioMixer: {fileID: 3391820058360014328, guid: 694d196937541a64f8492c210f7e0996, type: 2}
     actualSound: 3
+  - name: Chest
+    clip: {fileID: 8300000, guid: 4669e0ef6f4d83447a8d8db278c7414b, type: 3}
+    volume: 0.348
+    pitch: 0.94
+    loop: 0
+    atStart: 0
+    audioMixer: {fileID: 5467381551895976010, guid: 694d196937541a64f8492c210f7e0996, type: 2}
+    actualSound: 4
+  - name: Cig
+    clip: {fileID: 8300000, guid: ad887cade41a44c45abbc121bc23f21a, type: 3}
+    volume: 0.348
+    pitch: 0.94
+    loop: 0
+    atStart: 0
+    audioMixer: {fileID: 5467381551895976010, guid: 694d196937541a64f8492c210f7e0996, type: 2}
+    actualSound: 4
+  - name: belle
+    clip: {fileID: 8300000, guid: 4234cd3fc7b85b64fb647245fa318302, type: 3}
+    volume: 0.348
+    pitch: 0.94
+    loop: 0
+    atStart: 0
+    audioMixer: {fileID: 5467381551895976010, guid: 694d196937541a64f8492c210f7e0996, type: 2}
+    actualSound: 4
+  - name: drawner
+    clip: {fileID: 8300000, guid: 311010eb64734064786d975d2a8fa6ba, type: 3}
+    volume: 0.348
+    pitch: 0.94
+    loop: 0
+    atStart: 0
+    audioMixer: {fileID: 5467381551895976010, guid: 694d196937541a64f8492c210f7e0996, type: 2}
+    actualSound: 4
+  - name: bag
+    clip: {fileID: 8300000, guid: c730417bc525b5148a681315d799b207, type: 3}
+    volume: 0.348
+    pitch: 0.94
+    loop: 0
+    atStart: 0
+    audioMixer: {fileID: 5467381551895976010, guid: 694d196937541a64f8492c210f7e0996, type: 2}
+    actualSound: 4
+  - name: potion
+    clip: {fileID: 8300000, guid: 831e71d0a3675d347a19840be14277c6, type: 3}
+    volume: 0.348
+    pitch: 0.94
+    loop: 0
+    atStart: 0
+    audioMixer: {fileID: 5467381551895976010, guid: 694d196937541a64f8492c210f7e0996, type: 2}
+    actualSound: 4
+  - name: tavern
+    clip: {fileID: 8300000, guid: 7b16b4c06eb7bae419dfeb41dc09b932, type: 3}
+    volume: 0.348
+    pitch: 0.94
+    loop: 0
+    atStart: 0
+    audioMixer: {fileID: 5467381551895976010, guid: 694d196937541a64f8492c210f7e0996, type: 2}
+    actualSound: 4
