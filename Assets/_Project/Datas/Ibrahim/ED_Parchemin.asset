@@ -10,16 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d459d04f571d598438baaf897990612a, type: 3}
-  m_Name: ED_Fire
+  m_Name: ED_Parchemin
   m_EditorClassIdentifier: 
-  _entityName: "Feu de chemin\xE9e"
-  _entityDescription: "\u201CLe feu r\xE9chauffe un peu l\u2019atmosph\xE8re, il
-    a \xE9t\xE9 aliment\xE9 il y a peu\u201C"
-  _entitySprite: {fileID: 21300000, guid: 4d2daa54204b5984c99c328407df242e, type: 3}
-  _entityType: 2
-  _entityPrefab: {fileID: 7491040583169564168, guid: feb5422f794a9d44b81cee3ed5ceba59, type: 3}
+  _entityName: 
+  _entityDescription: 
+  _entitySprite: {fileID: 0}
+  _entityType: 0
+  _entityPrefab: {fileID: 0}
   _canBeDragged: 0
-  _keyToUnlock: {fileID: 11400000, guid: 81a41096ad24daf4c84aaa9b4b844016, type: 2}
+  _keyToUnlock: {fileID: 0}
   _password: 0
   _fullEntity: {fileID: 0}
   _ingredientToFill: {fileID: 0}
