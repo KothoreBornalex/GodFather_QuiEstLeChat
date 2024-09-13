@@ -15,10 +15,11 @@ MonoBehaviour:
   _entityName: Poubelle
   _entityDescription: "\u201CLa poubelle est ferm\xE9e, sans doute pour \xE9viter
     les piques assiettes\u201D"
-  _entitySprite: {fileID: 0}
+  _entitySprite: {fileID: 21300000, guid: 0b546eea5687ef94e9696b7b16f3a40d, type: 3}
   _entityType: 4
   _entityPrefab: {fileID: 7491040583169564168, guid: feb5422f794a9d44b81cee3ed5ceba59, type: 3}
   _canBeDragged: 0
+  _entityColor: {r: 1, g: 1, b: 1, a: 1}
   _keyToUnlock: {fileID: 0}
   _password: 2734
   _fullEntity: {fileID: 0}

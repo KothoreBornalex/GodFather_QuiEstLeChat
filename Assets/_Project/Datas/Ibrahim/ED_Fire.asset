@@ -19,6 +19,7 @@ MonoBehaviour:
   _entityType: 2
   _entityPrefab: {fileID: 7491040583169564168, guid: feb5422f794a9d44b81cee3ed5ceba59, type: 3}
   _canBeDragged: 0
+  _entityColor: {r: 1, g: 1, b: 1, a: 1}
   _keyToUnlock: {fileID: 11400000, guid: 81a41096ad24daf4c84aaa9b4b844016, type: 2}
   _password: 0
   _fullEntity: {fileID: 0}

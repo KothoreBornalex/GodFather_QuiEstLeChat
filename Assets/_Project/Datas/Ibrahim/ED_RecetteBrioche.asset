@@ -16,10 +16,11 @@ MonoBehaviour:
   _entityDescription: "\u201CLa recette de la brioche maison  2 oeufs de manticore
     3 cuill\xE8re de lait de dragon 1 gramme de sucre Il n\u2019y a pas de trace
     de noisette dans la recette\u201D  "
-  _entitySprite: {fileID: 0}
+  _entitySprite: {fileID: 21300000, guid: 929e1a1128eccf9459df890f12c8d197, type: 3}
   _entityType: 0
   _entityPrefab: {fileID: 7491040583169564168, guid: feb5422f794a9d44b81cee3ed5ceba59, type: 3}
   _canBeDragged: 0
+  _entityColor: {r: 1, g: 1, b: 1, a: 1}
   _keyToUnlock: {fileID: 0}
   _password: 0
   _fullEntity: {fileID: 0}

@@ -26,6 +26,7 @@ public class EntityData : ScriptableObject
     [SerializeField] private EntityTypes _entityType;
     [SerializeField] private GameObject _entityPrefab;
     [SerializeField] private bool _canBeDragged;
+    [SerializeField] private Color _entityColor = Color.white;
 
     [Space(15)]
 
@@ -49,6 +50,10 @@ public class EntityData : ScriptableObject
         return _entityName;
     }
 
+    public Color GetEntityColor()
+    {
+        return _entityColor;
+    }
     public EntityTypes GetEntityType()
     {
         return _entityType;

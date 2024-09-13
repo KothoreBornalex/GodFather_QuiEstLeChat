@@ -15,10 +15,11 @@ MonoBehaviour:
   _entityName: Brioche
   _entityDescription: "\u201CCette brioche semble bien app\xE9tissante , il s\u2019en
     d\xE9gage une forte odeur de noisette\u201D"
-  _entitySprite: {fileID: 21300000, guid: 5c307e0c1fb7ba64ebece091592ca6c6, type: 3}
+  _entitySprite: {fileID: 21300000, guid: dd63ebee46c5d434396726e82eb4a041, type: 3}
   _entityType: 0
   _entityPrefab: {fileID: 7491040583169564168, guid: feb5422f794a9d44b81cee3ed5ceba59, type: 3}
   _canBeDragged: 0
+  _entityColor: {r: 1, g: 1, b: 1, a: 1}
   _keyToUnlock: {fileID: 0}
   _password: 0
   _fullEntity: {fileID: 0}

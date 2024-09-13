@@ -15,10 +15,11 @@ MonoBehaviour:
   _entityName: Sac d'aventurier
   _entityDescription: "\u201CLe sac est ferm\xE9 par un sort puissant, on ne met
     pas facilement les mains sur les affaires des aventuriers exp\xE9riment\xE9\u201D"
-  _entitySprite: {fileID: 0}
+  _entitySprite: {fileID: 21300000, guid: 8891845028d33f74d8fe730404154800, type: 3}
   _entityType: 4
   _entityPrefab: {fileID: 7491040583169564168, guid: feb5422f794a9d44b81cee3ed5ceba59, type: 3}
   _canBeDragged: 0
+  _entityColor: {r: 0.8238993, g: 0.8238993, b: 0.8238993, a: 1}
   _keyToUnlock: {fileID: 0}
   _password: 4836
   _fullEntity: {fileID: 0}

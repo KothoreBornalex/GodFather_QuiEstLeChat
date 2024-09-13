@@ -15,10 +15,11 @@ MonoBehaviour:
   _entityName: Ticket de "Caisse"
   _entityDescription: "\u201CUne commande ill\xE9gale de potion de m\xE9tamorphose
     au nom d\u2019un certain \u201Cbeau gosse en armure\u201D\u201D "
-  _entitySprite: {fileID: 0}
+  _entitySprite: {fileID: 21300000, guid: a6ebf707394e0c74894a4063220c09af, type: 3}
   _entityType: 0
   _entityPrefab: {fileID: 7491040583169564168, guid: feb5422f794a9d44b81cee3ed5ceba59, type: 3}
   _canBeDragged: 0
+  _entityColor: {r: 1, g: 1, b: 1, a: 1}
   _keyToUnlock: {fileID: 0}
   _password: 0
   _fullEntity: {fileID: 0}

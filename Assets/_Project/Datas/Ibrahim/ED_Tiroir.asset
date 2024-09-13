@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _entityName: Tiroir
   _entityDescription: C'est un tiroir
-  _entitySprite: {fileID: 0}
+  _entitySprite: {fileID: 21300000, guid: 8f8c970dd59c8a742af68e271a40d182, type: 3}
   _entityType: 4
   _entityPrefab: {fileID: 7491040583169564168, guid: feb5422f794a9d44b81cee3ed5ceba59, type: 3}
   _canBeDragged: 0
+  _entityColor: {r: 1, g: 1, b: 1, a: 1}
   _keyToUnlock: {fileID: 0}
   _password: 7152
   _fullEntity: {fileID: 0}

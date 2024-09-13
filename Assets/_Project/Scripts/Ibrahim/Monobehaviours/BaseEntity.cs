@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.U2D;
@@ -248,8 +247,9 @@ public class BaseEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
 
         button.image.sprite = _entityData.GetEntitySprite();
+        button.image.color = _entityData.GetEntityColor();
 
-        EditorUtility.SetDirty(button.image);
+
         Canvas.ForceUpdateCanvases();
     }
 
@@ -264,5 +264,7 @@ public class BaseEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         _buttonComponent = GetComponent<Button>();
 
         _buttonComponent.image.sprite = _entityData.GetEntitySprite();
+        _buttonComponent.image.color = _entityData.GetEntityColor();
+
     }
 }
