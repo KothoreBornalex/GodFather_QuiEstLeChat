@@ -1487,9 +1487,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1868181441}
+      - m_Target: {fileID: 270373833}
         m_TargetAssemblyTypeName: testfortext, Assembly-CSharp
-        m_MethodName: ButtonPressed2
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
