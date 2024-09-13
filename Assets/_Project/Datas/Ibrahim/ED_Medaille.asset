@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d459d04f571d598438baaf897990612a, type: 3}
   m_Name: ED_Medaille
   m_EditorClassIdentifier: 
-  _entityName: "M\xE9daille1"
-  _entityDescription: "\u201CAccord\xE9 \xE0 monseigneur Floppin pour sa bravoure
-    et son inflexibilit\xE9 lors de la bataille du moulin vert\" "
+  _entityName: "M\xE9daille"
+  _entityDescription: "Cette m\xE9daille appartient visiblement a un chevalier ,
+    il est \xE9crit \"Rappel de ne pas manger le plat mortel\u201D"
   _entitySprite: {fileID: 0}
   _entityType: 0
   _entityPrefab: {fileID: 7491040583169564168, guid: feb5422f794a9d44b81cee3ed5ceba59, type: 3}
