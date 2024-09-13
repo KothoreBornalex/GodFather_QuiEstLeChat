@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d459d04f571d598438baaf897990612a, type: 3}
   m_Name: ED_Voleur
   m_EditorClassIdentifier: 
-  _entityName: 
-  _entityDescription: 
+  _entityName: Voleur
+  _entityDescription: "Le voleur, parmi toutes les personnes pr\xE9sentes c\u2019est
+    la personne la plus louche, cela-dit il n'a pas l'air bien bavard.\""
   _entitySprite: {fileID: 0}
   _entityType: 0
-  _entityPrefab: {fileID: 0}
+  _entityPrefab: {fileID: 7491040583169564168, guid: feb5422f794a9d44b81cee3ed5ceba59, type: 3}
   _canBeDragged: 0
   _keyToUnlock: {fileID: 0}
   _password: 0
