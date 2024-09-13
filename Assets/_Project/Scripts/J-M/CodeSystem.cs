@@ -8,6 +8,9 @@ public class CodeSystem : MonoBehaviour
 
     public static CodeSystem instance;
 
+    Animator uiAnimator;
+
+
     // Ensures that the instance is not duplicated
     private void Awake()
     {
@@ -21,7 +24,10 @@ public class CodeSystem : MonoBehaviour
         {
             Destroy(gameObject); // Destroy duplicate instance
         }
+        uiAnimator = GetComponent<Animator>();
+
     }
+
 
 
     private GameObject _entityToUnlock;
@@ -70,7 +76,11 @@ public class CodeSystem : MonoBehaviour
 
     public void StartUnlockPaswword(int password, GameObject entity)
     {
-        gameObject.SetActive(true);
+        if (uiAnimator != null)
+        {
+            uiAnimator.SetBool("CodeScreenOn", true);
+        }
+
         targetNumber = password;
         _entityToUnlock = entity;
 
@@ -144,10 +154,21 @@ public class CodeSystem : MonoBehaviour
         {
             if(_entityToUnlock) _entityToUnlock.GetComponent<BaseEntity>().StartDisappear();
 
-            gameObject.SetActive(false);
+            if (uiAnimator != null)
+            {
+                uiAnimator.SetBool("CodeScreenOn", false);
+            }
         }
 
         ResetNumbers();
+    }
+
+    public void ExitButton()
+    {
+        if (uiAnimator != null)
+        {
+            uiAnimator.SetBool("CodeScreenOn", false);
+        }
     }
 
 
