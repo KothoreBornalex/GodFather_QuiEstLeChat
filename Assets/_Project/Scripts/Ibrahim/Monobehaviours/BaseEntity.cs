@@ -195,7 +195,7 @@ public class BaseEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         if (_entityData.GetIngredientToFill() == externIngredient.GetEntityData())
         {
             //EntityData NewEntityData = test;
-            GameObject entityInstance = Instantiate(_entityData.GetFullEntity().GetEntityPrefab(), transform.position, transform.rotation, GameStateInstance.instance.CanvasMap.transform);
+            GameObject entityInstance = Instantiate(_entityData.GetFullEntity().GetEntityPrefab(), transform.position, transform.rotation, GameStateInstance.instance.EntitiesRectTransform.transform);
 
             entityInstance.GetComponent<RectTransform>().anchoredPosition = _rectTransform.anchoredPosition;
             entityInstance.GetComponent<RectTransform>().rotation = _rectTransform.rotation;

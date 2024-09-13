@@ -23,4 +23,4 @@ MonoBehaviour:
   _keyToUnlock: {fileID: 0}
   _password: 0
   _fullEntity: {fileID: 11400000, guid: 81a41096ad24daf4c84aaa9b4b844016, type: 2}
-  _ingredientToFill: {fileID: 0}
+  _ingredientToFill: {fileID: 11400000, guid: 56012eda5c4d6a24aafc4e82f1c3ecc5, type: 2}

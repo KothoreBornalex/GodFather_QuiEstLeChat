@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _entityName: Glass Of Water
   _entityDescription: This is a glass of water
-  _entitySprite: {fileID: 21300000, guid: 9887e9d50639710428e1a0181f469788, type: 3}
+  _entitySprite: {fileID: 21300000, guid: f47376500cac93f4682ad4ac2358d941, type: 3}
   _entityType: 1
   _entityPrefab: {fileID: 7491040583169564168, guid: feb5422f794a9d44b81cee3ed5ceba59, type: 3}
   _canBeDragged: 1

@@ -26,6 +26,7 @@ public class GameStateInstance : MonoBehaviour
 
     [SerializeField] public RecipesData RecipesData;
     [SerializeField] public Canvas CanvasMap;
+    [SerializeField] public RectTransform EntitiesRectTransform;
     [SerializeField] public CodeSystem CodeSystem;
 
     public void TestFunc()
