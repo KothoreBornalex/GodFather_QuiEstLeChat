@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _entityName: "Cl\xE9"
   _entityDescription: "\"C'est un cl\xE9 finement d\xE9cor\xE9 d'argent\" "
-  _entitySprite: {fileID: 0}
+  _entitySprite: {fileID: 21300000, guid: d1e07cdafe09a65499caa8bf83a7fdb9, type: 3}
   _entityType: 1
   _entityPrefab: {fileID: 7491040583169564168, guid: feb5422f794a9d44b81cee3ed5ceba59, type: 3}
   _canBeDragged: 1
