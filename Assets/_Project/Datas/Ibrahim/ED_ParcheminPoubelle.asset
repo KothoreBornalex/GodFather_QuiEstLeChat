@@ -10,15 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d459d04f571d598438baaf897990612a, type: 3}
-  m_Name: ED_Chevalier
+  m_Name: ED_ParcheminPoubelle
   m_EditorClassIdentifier: 
-  _entityName: Chevalier
-  _entityDescription: "Le chevalier, un brave aventurier , il semble tr\xE8s attach\xE9
-    \xE0 son image, pas s\xFBr qu'on puisse en tirer grand chose."
-  _entitySprite: {fileID: 0}
+  _entityName: Parchemin
+  _entityDescription: "A -> Y , B -> Z , C -> A etc , \xE7a semble utile quelque
+    part"
+  _entitySprite: {fileID: 21300000, guid: 929e1a1128eccf9459df890f12c8d197, type: 3}
   _entityType: 0
   _entityPrefab: {fileID: 7491040583169564168, guid: feb5422f794a9d44b81cee3ed5ceba59, type: 3}
   _canBeDragged: 0
+  _entityColor: {r: 1, g: 0.7332701, b: 0.2745098, a: 1}
   _keyToUnlock: {fileID: 0}
   _password: 0
   _fullEntity: {fileID: 0}
