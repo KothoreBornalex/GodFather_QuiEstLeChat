@@ -20,6 +20,8 @@ public class BaseEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     private bool _readyToBeDragged;
     private bool _wasDragged;
     private Animator _animator;
+    private Vector2 _originalPosition;
+
 
     [HideInInspector] public Vector2 targetLocation;
     private RectTransform _rectTransform;
@@ -36,15 +38,21 @@ public class BaseEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     void Start()
     {
         targetLocation = _rectTransform.anchoredPosition;
+        _originalPosition = _rectTransform.anchoredPosition;
     }
 
 
     void Update()
     {
-        if (_rectTransform.anchoredPosition != targetLocation)
-        {
-            _rectTransform.anchoredPosition = Vector2.Lerp(_rectTransform.anchoredPosition, targetLocation, Time.deltaTime * PlayerController.instance.GetDraggingSpeed());
-        }
+        
+            if (_wasDragged)
+            {
+                _rectTransform.anchoredPosition = Vector2.Lerp(_rectTransform.anchoredPosition, targetLocation, Time.deltaTime * PlayerController.instance.GetDraggingSpeed());
+            }else
+            {
+                _rectTransform.anchoredPosition = Vector2.Lerp(_rectTransform.anchoredPosition, _originalPosition, Time.deltaTime * PlayerController.instance.GetDraggingSpeed());
+            }
+        
     }
 
 
@@ -64,6 +72,7 @@ public class BaseEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public void OnPointerDown(PointerEventData eventData)
     {
         if (!_entityData.GetCanBeDragged()) return;
+        _originalPosition = _rectTransform.anchoredPosition;
 
         _readyToBeDragged = true;
     }
@@ -122,7 +131,7 @@ public class BaseEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     #endregion
     public void CheckForUse()
     {
-
+        _wasDragged = false;
         PointerEventData pointerData = new PointerEventData(EventSystem.current)
         {
             pointerId = -1,
@@ -190,7 +199,7 @@ public class BaseEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     }
 
 
-    private void Cook(BaseEntity externIngredient)
+    private bool Cook(BaseEntity externIngredient)
     {
         if (_entityData.GetIngredientToFill() == externIngredient.GetEntityData())
         {
@@ -209,6 +218,12 @@ public class BaseEntity : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
             /*Destroy(gameObject);
             Destroy(externIngredient.gameObject);*/
+
+            return true;
+        }
+        else
+        {
+            return false;
         }
         
     }
